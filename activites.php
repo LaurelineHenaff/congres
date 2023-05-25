@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Activités</title>
+    </head>
+    <style>
+    table{
+      padding: 3px;
+      border-spacing : 3px;
+      text-align: center;
+    }
+
+    form{
+      padding: 15px;
+    }
+
+    body{
+      text-align: center;
+      display: grid;
+      justify-content: center;
+    }
+    </style>
+    <body>
+      <p>Les activités proposées par chaque congrès</p>
+      <?php
+        // connexion
+        include_once("utils.php");
+        $connexion = connect();
+
+        if($connexion){
+          // Faire la requête SQL
+          $sql = "SELECT * FROM congres, proposer, activites
+          WHERE activites.CODEACTIVITE = proposer.CODEACTIVITE
+            AND proposer.CODECONGRES = congres.CODECONGRES";
+
+          // Interroger la BDD
+          $activites = query($connexion, $sql);
+
+          // Afficher le résultat
+            echo "<form class='' action='activites.php' method='post'>";
+              foreach($activites as $a){
+                echo "<input type='radio' name='activites' id='"." ".$a['NOMACTIVITE']."'value='".$a['PRIXACTIVITE']."'>";                
+                echo "<label for='".$a['NOMACTIVITE']."'>".$a['NOMACTIVITE']." - ".$a['PRIXACTIVITE']."€"."</label><br>";
+                echo "<br>";
+              }
+              echo "<br>";
+              echo "<input type='submit' value='Go'>";
+            echo "</form>";
+          }
+
+          if(isset($_POST['congres'])){
+            $activite = $_POST['congres'];
+            $sql = "SELECT NOMACTIVITE, PRIXACTIVITE FROM activites, congres, proposer
+            WHERE activites.CODEACTIVITE = proposer.CODEACTIVITE
+            AND proposer.CODECONGRES = congres.CODECONGRES";
+            $activite = query($connexion, $sql);
+            if($activite){
+              include_once("fonctions.php");
+              afficherActivites($activite);
+            }
+          }
+          // Déconnexion
+          disconnect($connexion);
+      ?>
+      <a href="index.php" style="text-decoration:none;"><br> Accueil</a>
+    </body>
