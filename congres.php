@@ -25,7 +25,7 @@
         if($connexion){
           // Faire la requête SQL
           $sql = "SELECT CODECONGRES, VILLECONGRES, NUMEDITIONCONGRES, DTDEBUTCONGRES,
-          DTFINCONGRES, URLSITEWEBCONGRES FROM congres";
+          DTFINCONGRES FROM congres";
 
           // Interroger la BDD
           $congres = query($connexion, $sql);
