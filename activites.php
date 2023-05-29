@@ -6,9 +6,8 @@
     </head>
     <style>
     table{
-      padding: 3px;
-      border-spacing : 3px;
       text-align: center;
+      border-collapse: collapse;
     }
 
     form{
@@ -19,6 +18,11 @@
       text-align: center;
       display: grid;
       justify-content: center;
+    }
+
+    td, th{
+      padding: 0.5rem;
+      border: 1px solid black;
     }
     </style>
     <body>
@@ -32,7 +36,8 @@
           // Faire la requête SQL
           $sql = "SELECT * FROM congres, proposer, activites
           WHERE activites.CODEACTIVITE = proposer.CODEACTIVITE
-            AND proposer.CODECONGRES = congres.CODECONGRES";
+            AND proposer.CODECONGRES = congres.CODECONGRES
+            GROUP BY activites.CODEACTIVITE";
 
           // Interroger la BDD
           $activites = query($connexion, $sql);
