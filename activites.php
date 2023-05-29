@@ -16,8 +16,6 @@
 
     body{
       text-align: center;
-      display: grid;
-      justify-content: center;
     }
 
     td, th{
@@ -37,28 +35,18 @@
           $sql = "SELECT * FROM congres, proposer, activites
           WHERE activites.CODEACTIVITE = proposer.CODEACTIVITE
             AND proposer.CODECONGRES = congres.CODECONGRES
-            GROUP BY activites.CODEACTIVITE";
+            GROUP BY activites.CODEACTIVITE
+            ORDER BY activites.PRIXACTIVITE";
 
           // Interroger la BDD
           $activites = query($connexion, $sql);
 
-          // // Afficher le résultat
-          //   echo "<form class='' action='activites.php' method='post'>";
-          //     foreach($activites as $a){
-          //       echo "<input type='radio' name='activites' id='"." ".$a['NOMACTIVITE']."'value='".$a['PRIXACTIVITE']."'>";                
-          //       echo "<label for='".$a['NOMACTIVITE']."'>".$a['NOMACTIVITE']." - ".$a['PRIXACTIVITE']."€"."</label><br>";
-          //       echo "<br>";
-          //     }
-          //     echo "<br>";
-          //     echo "<input type='submit' value='Go'>";
-          //   echo "</form>";
-
-            // Afficher le résultat
-            if($activites){
-              include_once("fonctions.php");
-              afficherActivites($activites);
-            }
+          // Afficher le résultat
+          if($activites){
+            include_once("fonctions.php");
+            afficherActivites($activites);
           }
+        }
 
           if(isset($_POST['congres'])){
             $activite = $_POST['congres'];
