@@ -1,24 +1,3 @@
-<style>
-th{
-  font-weight: normal;
- 
-}
-
-td{
-  padding: 1.5rem;
-}
-
-body, table{
-  text-align: center;
-  justify-content: center;
-  display: grid;
-}
-
-table{
-  margin-top: 2rem;
-  padding: 1rem;
-}
-</style>
 <?php
 function afficherCongres($congres){
   echo '<table>';

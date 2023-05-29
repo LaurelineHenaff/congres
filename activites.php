@@ -2,27 +2,10 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
+        <link rel="shortcut icon" href="activites.ico" type="image/x-icon"/>
+        <link rel="stylesheet" href="style.css">
         <title>Activités</title>
     </head>
-    <style>
-    table{
-      text-align: center;
-      border-collapse: collapse;
-    }
-
-    form{
-      padding: 15px;
-    }
-
-    body{
-      text-align: center;
-    }
-
-    td, th{
-      padding: 0.5rem;
-      border: 1px solid black;
-    }
-    </style>
     <body>
       <p>Les activités proposées par chaque congrès</p>
       <?php

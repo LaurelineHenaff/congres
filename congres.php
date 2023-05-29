@@ -2,20 +2,10 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
+        <link rel="shortcut icon" href="congres.ico" type="image/x-icon"/>
+        <link rel="stylesheet" href="style.css">
         <title>Liste des congrès</title>
     </head>
-    <style>
-    table{
-      padding: 1px;
-      border-spacing : 3px;
-      text-align: center;
-      border: 1px solid black;
-    }
-
-    a{
-      text-decoration: none;
-    }
-    </style>
     <body>
       <?php
       // Connexion

@@ -3,16 +3,8 @@
     <head>
         <meta charset="utf-8">
         <link rel="shortcut icon" href="congres.ico" type="image/x-icon"/>
+        <link rel="stylesheet" href="style.css">
         <title>Congrès</title>
-        <style>
-        a{
-          text-decoration: none;
-        }
-
-        body{
-          text-align: center;
-        }
-        </style>
     </head>
     <body>
       <p> Menu </p>
